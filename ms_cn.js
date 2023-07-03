@@ -476,7 +476,7 @@ function solveDSSP()
 				updateBoard(board);
 				cell.value = board.getValue(cell.row,cell.column);
 
-				logEvent("sleeping a little");
+				logEvent("sleeping a little...");
 				await prueba();
 
 				//how do results change if I make more than 1 initial move?
