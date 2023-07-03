@@ -369,8 +369,6 @@ function setMyStyle(style)
  * Main
  */
 
-prueba();
-
 //apply stylesheet
 setMyStyle("https://drive.google.com/uc?export=download&id=1bbkb1PZq0657ZOExsTyB3cekcllvT3k0");
 
@@ -577,7 +575,7 @@ function solveDSSP()
 				totalFastestTimeWin = gameTime;
 			}
 			totalTimeToWin += gameTime;
-			
+			prueba();
 		}
 		else
 		{
