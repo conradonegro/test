@@ -571,7 +571,7 @@ function solveDSSP()
 
 		if(win)
 		{
-			logEvent("WE WON! :)");
+			logEvent("WE WON! :) :)");
 			totalWins++;
 			if(gameTime < totalFastestTimeWin)
 			{
@@ -581,7 +581,7 @@ function solveDSSP()
 		}
 		else
 		{
-			logEvent("WE LOST! :(");
+			logEvent("WE LOST! :( :(");
 			totalLosses++;
 			totalTimeToLose += gameTime;
 		}
