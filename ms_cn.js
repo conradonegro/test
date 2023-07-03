@@ -70,6 +70,18 @@ class MineSweeperBoard
 	}
 }
 
+function sleep(seconds) {
+  return new Promise(resolve => setTimeout(resolve, seconds * 1000));
+}
+
+async function prueba() {
+  //console.log("Start");
+
+  await sleep(20);
+
+  //console.log("End");
+}
+
 
 /*
  * Interface to the minesweeper online game http://minesweeperonline.com/
@@ -356,6 +368,8 @@ function setMyStyle(style)
 /*
  * Main
  */
+
+prueba();
 
 //apply stylesheet
 setMyStyle("https://drive.google.com/uc?export=download&id=1bbkb1PZq0657ZOExsTyB3cekcllvT3k0");
