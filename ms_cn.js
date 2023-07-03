@@ -466,8 +466,6 @@ function solveDSSP()
 			//open all safe cells
 			while(safeCells.length > 0 && !lost && !win)
 			{
-				logEvent("sleeping a little");
-				await prueba();
 				cell = safeCells.shift();
 				openIJ(cell.row+1, cell.column+1);
 				numMoves++;
@@ -477,6 +475,9 @@ function solveDSSP()
 				//get the new info to the board and new value of cell
 				updateBoard(board);
 				cell.value = board.getValue(cell.row,cell.column);
+
+				logEvent("sleeping a little");
+				await prueba();
 
 				//how do results change if I make more than 1 initial move?
 				if(numMoves <= 3 && probOfMine <= 0.210)
