@@ -460,6 +460,7 @@ function solveDSSP()
 			//if there is no safe choice available, choose random
 			if(safeCells.length == 0)
 			{
+				prueba();
 				safeCells.push(randomMove1(board));
 			}
 
@@ -575,7 +576,6 @@ function solveDSSP()
 				totalFastestTimeWin = gameTime;
 			}
 			totalTimeToWin += gameTime;
-			prueba();
 		}
 		else
 		{
