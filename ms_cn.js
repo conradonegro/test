@@ -467,7 +467,7 @@ function solveDSSP()
 			while(safeCells.length > 0 && !lost && !win)
 			{
 				logEvent("sleeping a little");
-				prueba();
+				await prueba();
 				cell = safeCells.shift();
 				openIJ(cell.row+1, cell.column+1);
 				numMoves++;
