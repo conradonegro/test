@@ -460,6 +460,7 @@ function solveDSSP()
 			//if there is no safe choice available, choose random
 			if(safeCells.length == 0)
 			{
+				logEvent("sleeping a little");
 				prueba();
 				safeCells.push(randomMove1(board));
 			}
