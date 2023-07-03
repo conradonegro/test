@@ -415,7 +415,7 @@ var totalGuesses=0;
 var totalMoves=0;
 
 //Solve minesweeper by Double Set Single Point algorithm (DSSP)
-function solveDSSP()
+async function solveDSSP()
 {
 	var board;
 	var safeCells = new Array();
