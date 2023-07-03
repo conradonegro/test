@@ -77,7 +77,7 @@ function sleep(seconds) {
 async function prueba() {
   //console.log("Start");
 
-  await sleep(20);
+  await sleep(30);
 
   //console.log("End");
 }
@@ -460,14 +460,14 @@ function solveDSSP()
 			//if there is no safe choice available, choose random
 			if(safeCells.length == 0)
 			{
-				logEvent("sleeping a little");
-				prueba();
 				safeCells.push(randomMove1(board));
 			}
 
 			//open all safe cells
 			while(safeCells.length > 0 && !lost && !win)
 			{
+				logEvent("sleeping a little");
+				prueba();
 				cell = safeCells.shift();
 				openIJ(cell.row+1, cell.column+1);
 				numMoves++;
