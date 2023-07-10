@@ -74,10 +74,10 @@ function sleep(seconds) {
   return new Promise(resolve => setTimeout(resolve, seconds * 1000));
 }
 
-async function prueba() {
+async function prueba(sec) {
   //console.log("Start");
 
-  await sleep(0.05);
+  await sleep(sec);
 
   //console.log("End");
 }
@@ -477,7 +477,7 @@ async function solveDSSP()
 				cell.value = board.getValue(cell.row,cell.column);
 
 				//logEvent("sleeping a little...");
-				await prueba();
+				await prueba(0.5);
 
 				//how do results change if I make more than 1 initial move?
 				if(numMoves <= 3 && probOfMine <= 0.210)
@@ -572,6 +572,7 @@ async function solveDSSP()
 		if(win)
 		{
 			logEvent("WE WON! :) :)");
+			await prueba(10);
 			totalWins++;
 			if(gameTime < totalFastestTimeWin)
 			{
@@ -582,6 +583,7 @@ async function solveDSSP()
 		else
 		{
 			logEvent("WE LOST! :( :(");
+			await prueba(10);
 			totalLosses++;
 			totalTimeToLose += gameTime;
 		}
