@@ -463,6 +463,7 @@ async function solveDSSP()
 				//safeCells.push(randomMove1(board));
 				logEvent("Conrado has 5 seconds to make moves");
 				await prueba(5);
+				updateBoard(board);
 			}
 
 			//open all safe cells
