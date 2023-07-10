@@ -464,6 +464,30 @@ async function solveDSSP()
 				logEvent("Conrado has 5 seconds to make moves");
 				await prueba(5);
 				updateBoard(board);
+				//we have new info, iterate through all cells to see if we can find something useful
+				for(i=0; i<rows; i++)
+				{
+					for(j=0; j<cols; j++)
+					{
+						//if all neighbors are free, put them in safeCells for next iteration
+						var val = board.getValue(i,j);
+						if(val != values.BLANK && val != values.OPEN0 && val != values.BOMBFLAGGED)
+						{
+								if(isAFN(board, i, j))
+								{
+									//put all unmarked neighbors of cell into safeCells
+									//doesnt work -> safeCells.push(getUnmarkedNeighbors(board, cell.row, cell.column));
+									getUnmarkedNeighbors(board, i, j, safeCells);
+								}
+								else 
+								{
+									//put them in questionableCells to check for AMN and AFN later
+									questionableCells.push(new MineSweeperCell(i,j,val));
+								}
+						}
+					}
+				}
+				updateBoard(board);
 			}
 
 			//open all safe cells
@@ -483,20 +507,20 @@ async function solveDSSP()
 				await prueba(0.15);
 
 				//how do results change if I make more than 1 initial move?
-				if(numMoves <= 3 && probOfMine <= 0.210)
-				{
+				//if(numMoves <= 3 && probOfMine <= 0.210)
+				//{
 					//logEvent("Open" + numMoves +" (" + cell.row + "," + cell.column + ")");
-					probOfMine = (mines - countCells(board, values.BOMBFLAGGED)) / countCells(board, values.BLANK);
+				//	probOfMine = (mines - countCells(board, values.BOMBFLAGGED)) / countCells(board, values.BLANK);
 					//logEvent("Probability of hitting a mine is: " + probOfMine);
-					if(probOfMine <= 0.210)
-					{
-						//logEvent("We will play random move");
-						//logEvent("More than 1 starting click");
-						//safeCells.unshift(randomMove1(board)); //try corners first
-						safeCells.push(randomMove2(board)); //don't try corners
-						//logEvent("random move will be: (" + safeCells[0].row + "," + safeCells[0].column + ")");
-					}
-				}
+				//	if(probOfMine <= 0.210)
+				//	{
+				//		//logEvent("We will play random move");
+				//		//logEvent("More than 1 starting click");
+				//		//safeCells.unshift(randomMove1(board)); //try corners first
+				//		safeCells.push(randomMove2(board)); //don't try corners
+				//		//logEvent("random move will be: (" + safeCells[0].row + "," + safeCells[0].column + ")");
+				//	}
+				//}
 
 				//if it was a bomb, we died
 				if(cell.value == values.BOMBDEATH)
