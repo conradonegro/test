@@ -77,7 +77,7 @@ function sleep(seconds) {
 async function prueba() {
   //console.log("Start");
 
-  await sleep(500);
+  await sleep(100);
 
   //console.log("End");
 }
@@ -476,7 +476,7 @@ async function solveDSSP()
 				updateBoard(board);
 				cell.value = board.getValue(cell.row,cell.column);
 
-				logEvent("sleeping a little...");
+				//logEvent("sleeping a little...");
 				await prueba();
 
 				//how do results change if I make more than 1 initial move?
