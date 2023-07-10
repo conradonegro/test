@@ -460,7 +460,9 @@ async function solveDSSP()
 			//if there is no safe choice available, choose random
 			if(safeCells.length == 0)
 			{
-				safeCells.push(randomMove1(board));
+				//safeCells.push(randomMove1(board));
+				logEvent("Conrado has 5 seconds to make moves");
+				await prueba(5);
 			}
 
 			//open all safe cells
