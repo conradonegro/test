@@ -77,7 +77,7 @@ function sleep(seconds) {
 async function prueba() {
   //console.log("Start");
 
-  await sleep(30);
+  await sleep(1);
 
   //console.log("End");
 }
