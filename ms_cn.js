@@ -504,7 +504,7 @@ async function solveDSSP()
 				cell.value = board.getValue(cell.row,cell.column);
 
 				//logEvent("sleeping a little...");
-				await prueba(0.05);
+				//await prueba(0.05);
 
 				//how do results change if I make more than 1 initial move?
 				//if(numMoves <= 3 && probOfMine <= 0.210)
