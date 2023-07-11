@@ -461,8 +461,8 @@ async function solveDSSP()
 			if(safeCells.length == 0)
 			{
 				//safeCells.push(randomMove1(board));
-				logEvent("Conrado has 5 seconds to make moves");
-				await prueba(5);
+				logEvent("Conrado has 2 seconds to make moves");
+				await prueba(2);
 				updateBoard(board);
 				//we have new info, iterate through all cells to see if we can find something useful
 				for(i=0; i<rows; i++)
@@ -504,7 +504,7 @@ async function solveDSSP()
 				cell.value = board.getValue(cell.row,cell.column);
 
 				//logEvent("sleeping a little...");
-				await prueba(0.15);
+				await prueba(0.05);
 
 				//how do results change if I make more than 1 initial move?
 				//if(numMoves <= 3 && probOfMine <= 0.210)
