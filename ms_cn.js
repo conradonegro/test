@@ -460,34 +460,34 @@ async function solveDSSP()
 			//if there is no safe choice available, choose random
 			if(safeCells.length == 0)
 			{
-				//safeCells.push(randomMove1(board));
-				logEvent("Conrado has 2 seconds to make moves");
-				await prueba(2);
-				updateBoard(board);
-				//we have new info, iterate through all cells to see if we can find something useful
-				for(i=0; i<rows; i++)
-				{
-					for(j=0; j<cols; j++)
-					{
-						//if all neighbors are free, put them in safeCells for next iteration
-						var val = board.getValue(i,j);
-						if(val != values.BLANK && val != values.OPEN0 && val != values.BOMBFLAGGED)
-						{
-								if(isAFN(board, i, j))
-								{
-									//put all unmarked neighbors of cell into safeCells
-									//doesnt work -> safeCells.push(getUnmarkedNeighbors(board, cell.row, cell.column));
-									getUnmarkedNeighbors(board, i, j, safeCells);
-								}
-								else 
-								{
-									//put them in questionableCells to check for AMN and AFN later
-									questionableCells.push(new MineSweeperCell(i,j,val));
-								}
-						}
-					}
-				}
-				updateBoard(board);
+				safeCells.push(randomMove1(board));
+				//logEvent("Conrado has 2 seconds to make moves");
+				//await prueba(2);
+				//updateBoard(board);
+				////we have new info, iterate through all cells to see if we can find something useful
+				//for(i=0; i<rows; i++)
+				//{
+				//	for(j=0; j<cols; j++)
+				//	{
+				//		//if all neighbors are free, put them in safeCells for next iteration
+				//		var val = board.getValue(i,j);
+				//		if(val != values.BLANK && val != values.OPEN0 && val != values.BOMBFLAGGED)
+				//		{
+				//				if(isAFN(board, i, j))
+				//				{
+				//					//put all unmarked neighbors of cell into safeCells
+				//					//doesnt work -> safeCells.push(getUnmarkedNeighbors(board, cell.row, cell.column));
+				//					getUnmarkedNeighbors(board, i, j, safeCells);
+				//				}
+				//				else 
+				//				{
+				//					//put them in questionableCells to check for AMN and AFN later
+				//					questionableCells.push(new MineSweeperCell(i,j,val));
+				//				}
+				//		}
+				//	}
+				//}
+				//updateBoard(board);
 			}
 
 			//open all safe cells
